@@ -1,6 +1,6 @@
 {
   "name": "sourcemap-reverser",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "A CLI tool to reconstruct original source files from minified code and sourcemaps",
   "main": "index.js",
   "bin": {
@@ -9,6 +9,20 @@
   "scripts": {
     "start": "node index.js"
   },
+  "homepage": "https://github.com/rosbel/sourcemap-reverser",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/rosbel/sourcemap-reverser"
+  },
+  "keywords": [
+    "sourcemap",
+    "reverser",
+    "minified",
+    "source",
+    "code",
+    "cli",
+    "tool"
+  ],
   "author": "rosbel",
   "license": "MIT",
   "dependencies": {
