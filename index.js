@@ -47,16 +47,17 @@ async function main() {
   program
     .version(packageJson.version)
     .description(packageJson.description)
-    .description('Reconstruct source files from minified code and sourcemaps')
     .requiredOption('-m, --minified <path>', 'Path to the minified code')
-    .requiredOption('-s, --sourcemap <path>', 'Path to the source map')
+    .option('-s, --sourcemap <path>', 'Path to the source map (default: <minified_code_path>.map)')
     .requiredOption('-o, --output <path>', 'Path to the output directory')
     .parse(process.argv);
 
-  const options = program.opts();
+  const { minified, sourcemap, output } = program.opts();
+
+  const sourceMapPath = sourcemap || `${minified}.map`;
 
   try {
-    await getSourceCode(options.minified, options.sourcemap, options.output);
+    await getSourceCode(minified, sourceMapPath, output);
     console.log('Source code reconstruction complete.');
   } catch (error) {
     console.error('Error during source code reconstruction:', error);

@@ -19,7 +19,7 @@ sourcemap-reverser --minified <minified_code_path> --sourcemap <source_map_path>
 ### Options
 
 - `-m, --minified <path>`: Path to the minified code (required)
-- `-s, --sourcemap <path>`: Path to the source map (required)
+- `-s, --sourcemap <path>`: Path to the source map (default: `<minified_code_path>.map`)
 - `-o, --output <path>`: Path to the output directory where the reconstructed source files will be saved (required)
 
 ### Example
