@@ -1,9 +1,13 @@
+#!/usr/bin/env node
+
 const fs = require('fs');
 const path = require('path');
 const { SourceMapConsumer } = require('source-map');
 
 const { program } = require('commander');
 
+// Read the package.json file
+const packageJson = JSON.parse(fs.readFileSync(path.join(__dirname, 'package.json'), 'utf8'));
 
 async function getSourceCode(minifiedCodePath, sourceMapPath, outputPath) {
   // Read minified code and source map files
@@ -41,7 +45,8 @@ async function getSourceCode(minifiedCodePath, sourceMapPath, outputPath) {
 
 async function main() {
   program
-    .version('1.0.0')
+    .version(packageJson.version)
+    .description(packageJson.description)
     .description('Reconstruct source files from minified code and sourcemaps')
     .requiredOption('-m, --minified <path>', 'Path to the minified code')
     .requiredOption('-s, --sourcemap <path>', 'Path to the source map')

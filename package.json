@@ -1,14 +1,18 @@
 {
-  "name": "consume-sourcemap",
-  "version": "1.0.0",
-  "description": "Consumes a sourcemap using source-map npm library",
+  "name": "sourcemap-reverser",
+  "version": "0.0.1",
+  "description": "A CLI tool to reconstruct original source files from minified code and sourcemaps",
   "main": "index.js",
+  "bin": {
+    "sourcemap-reverser": "./index.js"
+  },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node index.js"
   },
   "author": "rosbel",
-  "license": "ISC",
+  "license": "MIT",
   "dependencies": {
+    "commander": "^10.0.1",
     "source-map": "^0.7.4"
   }
 }
